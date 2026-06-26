@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;750&display=swap');
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Custom Premium Scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.2);
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.4);
+}
+
+/* Custom dark utility classes if needed */
+.dark body {
+  background-color: #09090b;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+/* Custom select range adjustments */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: opacity(0.5);
+  transition: opacity 0.2s;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  filter: opacity(1);
+}
+
+/* Printer friendly styles */
+@media print {
+  /* Hide all non-printable elements */
+  .no-print,
+  .no-print-sidebar,
+  .no-print-header,
+  .conversational-panel,
+  header,
+  aside,
+  footer,
+  button,
+  select,
+  input,
+  .hide-on-print,
+  .filters-panel-container,
+  #chat-widget-trigger,
+  .fixed,
+  .absolute {
+    display: none !important;
+  }
+
+  /* Reset layout constraints for print preview */
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Keep core containers stretched and clean */
+  #root, .flex-1, main {
+    background: #ffffff !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  /* Ensure grid displays cleanly */
+  .grid {
+    display: grid !important;
+    grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+  }
+
+  /* Map column-span classes cleanly */
+  .col-span-12, .lg:col-span-12, .lg:col-span-9, .lg:col-span-3 {
+    grid-column: span 12 / span 12 !important;
+  }
+  .lg:col-span-6, .md:col-span-6 {
+    grid-column: span 6 / span 6 !important;
+  }
+  .lg:col-span-4, .md:col-span-4 {
+    grid-column: span 4 / span 4 !important;
+  }
+  .lg:col-span-3, .md:col-span-3 {
+    grid-column: span 3 / span 3 !important;
+  }
+
+  /* Keep chart widgets nested properly with margins */
+  .chart-container-card {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    padding: 1rem !important;
+    margin-bottom: 1.5rem !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .chart-container-card * {
+    color: #000000 !important;
+    stroke: #000000 !important;
+  }
+}
+

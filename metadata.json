@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Dash-Dost Analytics Dashboard",
+  "description": "An interactive analytics dashboard builder featuring robust geographic insights, dynamic filtering, local-first state persistence, and conversational data visualization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
